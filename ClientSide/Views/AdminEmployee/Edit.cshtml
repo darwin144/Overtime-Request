@@ -1,0 +1,209 @@
+﻿@model ClientSide.Models.Employee
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="~/lib/assets/css/main/app.css" />
+    <link rel="stylesheet" href="~/lib/assets/css/pages/auth.css" />
+    <link rel="shortcut icon"
+          href="~/lib/assets/images/logo/favicon.svg"
+          type="image/x-icon" />
+    <link rel="shortcut icon"
+          href="~/lib/assets/images/logo/favicon.png"
+          type="image/png" />
+    <link rel="stylesheet" href="~/lib/assets/extensions/choices.js/public/assets/styles/choices.css">
+    <!-- Include CSS file for Bootstrap Datepicker -->
+    <!-- Include CSS file for Bootstrap Datepicker -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+
+    <!-- Include necessary libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/js/dropdowndata.js"></script>
+
+
+    <!-- Additional scripts -->
+    <script>
+        $(document).ready(function () {
+            $('#birthdate-input').datepicker({
+                format: 'yyyy-mm-dd',
+                autoclose: true,
+                todayHighlight: true
+            });
+
+            $('#hiringdate-input').datepicker({
+                format: 'yyyy-mm-dd',
+                autoclose: true,
+                todayHighlight: true
+            });
+        });
+    </script>
+
+    <style>
+        body,
+        html {
+            height: 100%;
+        }
+
+        body {
+            background-color: #f2f7ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #auth {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .auth-card {
+            min-width: 500px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffff;
+        }
+
+        .auth-logo {
+            text-align: center;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        .auth-title {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .auth-subtitle {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-control-icon {
+            position: absolute;
+            top: 50%;
+            margin-left: 5px;
+            transform: translateY(-55%);
+            color: #ccc;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-control {
+            padding-left: 40px;
+        }
+
+        .btn-block {
+            width: 100%;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="auth">
+        <div class="auth-card">
+            <div class="auth-logo">
+                <a href="index.html">
+                    <img src="https://www.metrodataacademy.id/static/media/logo_metrodata_academy.f40277dc.svg"
+                         alt="Logo"
+                         width="150px" />
+                </a>
+            </div>
+            <h1 class="auth-title">Employee</h1>
+            <p class="auth-subtitle mb-5">
+                Edit Employee.
+            </p>
+            <form action="Edit" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Id" class="control-label"></label>
+                    <input asp-for="Id" class="form-control" />
+                    <span asp-validation-for="Id" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NIK" class="control-label"></label>
+                    <input asp-for="NIK" class="form-control" />
+                    <span asp-validation-for="NIK" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FirstName" class="control-label"></label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName" class="control-label"></label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BirthDate" class="control-label"></label>
+                    <input asp-for="BirthDate" class="form-control" />
+                    <span asp-validation-for="BirthDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Gender" class="control-label"></label>
+                    <input asp-for="Gender" class="form-control" />
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="HiringDate" class="control-label"></label>
+                    <input asp-for="HiringDate" class="form-control" />
+                    <span asp-validation-for="HiringDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PhoneNumber" class="control-label"></label>
+                    <input asp-for="PhoneNumber" class="form-control" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ReportTo" class="control-label"></label>
+                    <select asp-for="ReportTo" id="managerdropdown" class="form-control"></select>
+                    <span asp-validation-for="ReportTo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EmployeeLevel_id" class="control-label">Employee Level</label>
+                    <select asp-for="EmployeeLevel_id" id="employeeleveldropdown" class="form-control"> </select>
+                    <span asp-validation-for="EmployeeLevel_id" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Department_id" class="control-label">Department </label>
+                    <select asp-for="Department_id" id="departmentdropdown" class="form-control"></select>
+                    <span asp-validation-for="Department_id" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary btn-block btn-md shadow-lg mt-4" />
+                </div>
+                <div style="text-align: center;">
+                    <a asp-action="GetAllEmployee">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

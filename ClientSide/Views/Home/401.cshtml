@@ -1,0 +1,117 @@
+﻿@{
+    Layout = "_ErrorLayout";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>401 - Unauthorized</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,700" rel="stylesheet">
+    <style>
+        body {
+            background-color: #F2F7FF;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        #notfound {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .notfound {
+            max-width: 520px;
+            width: 100%;
+            text-align: center;
+            padding: 15px;
+            margin: 0 auto;
+        }
+
+            .notfound .notfound-404 {
+                height: 150px;
+                line-height: 150px;
+            }
+
+            .notfound h1 {
+                font-family: 'Montserrat', sans-serif;
+                font-size: 146px;
+                font-weight: 700;
+                margin: 0;
+                color: #000;
+                text-transform: uppercase;
+                position: relative;
+                animation: notfound-404 2s ease-in-out;
+                animation-delay: 1s;
+            }
+
+            .notfound h2 {
+                font-family: 'Montserrat', sans-serif;
+                font-size: 22px;
+                font-weight: 300;
+                text-transform: uppercase;
+                color: #000;
+                margin-top: 0;
+                margin-bottom: 25px;
+            }
+
+            .notfound p {
+                font-family: 'Montserrat', sans-serif;
+                font-size: 14px;
+                font-weight: 300;
+                color: #000;
+                margin-top: 0;
+                margin-bottom: 25px;
+            }
+
+            .notfound a {
+                font-family: 'Montserrat', sans-serif;
+                font-size: 14px;
+                text-decoration: none;
+                text-transform: uppercase;
+                background: #189cf0;
+                display: inline-block;
+                padding: 15px 30px;
+                border-radius: 40px;
+                color: #fff;
+                font-weight: 700;
+                box-shadow: 0px 4px 15px -5px #189cf0;
+                transition: 0.2s;
+            }
+
+                .notfound a:hover {
+                    background: #fff;
+                    color: #189cf0;
+                }
+
+        @@keyframes notfound-404 {
+            0% {
+                opacity: 0;
+                transform: scale(1.1);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="notfound">
+        <div class="notfound">
+            <div class="notfound-404 mb-3">
+                <h1>401</h1>
+            </div>
+            <h2>Oops! You should not be here</h2>
+            <p>Access is allowed only for registered users!</p>
+            <a href="/">Go Back</a>
+        </div>
+    </div>
+</body>
+
+</html>

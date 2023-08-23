@@ -1,0 +1,148 @@
+﻿@model ClientSide.ViewModel.Account.LoginVM
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "_Layout";
+}
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/assets/css/main/app.css" />
+    <link rel="stylesheet" href="~/lib/assets/css/pages/auth.css" />
+    <link rel="shortcut icon"
+          href="~/lib/assets/images/logo/favicon.svg"
+          type="image/x-icon" />
+    <link rel="shortcut icon"
+          href="~/lib/assets/images/logo/favicon.png"
+          type="image/png" />
+
+    <style>
+        body,
+        html {
+            height: 100%;
+        }
+
+        body {
+            background-color: #f2f7ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #auth {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .auth-card {
+            min-width: 400px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+        }
+
+        .auth-logo {
+            text-align: center;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        .auth-title {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .auth-subtitle {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-control-icon {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-4%);
+        }
+
+        .form-check-label {
+            margin-bottom: 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="auth">
+        <div class="auth-card">
+            <div class="auth-logo">
+                <a href="">
+                    <img src="https://www.metrodataacademy.id/static/media/logo_metrodata_academy.f40277dc.svg"
+                         alt="Logo"
+                         width="150px" />
+                </a>
+            </div>
+            <h1 class="auth-title">Login</h1>
+            <p class="auth-subtitle mb-4">
+                Log in with your data that you entered during registration.
+            </p>
+            
+
+            <form asp-action="Login">
+                <div class="form-group position-relative has-icon-left mb-3">
+                    <input asp-for="Email"
+                           class="form-control form-control-md"
+                           placeholder="Email" />
+                    <div class="form-control-icon">
+                        <i class="bi bi-person"></i>
+                    </div>
+                </div>
+                <div class="form-group position-relative has-icon-left mb-3">
+                    <input asp-for="Password"
+                           class="form-control form-control-md"
+                           placeholder="Password" />
+                    <div class="form-control-icon">
+                        <i class="bi bi-shield-lock"></i>
+                    </div>
+                </div>
+                @if (TempData["ErrorMessage"] != null)
+                {
+                    <div class=" text-sm" style="color:red;">
+                        @TempData["ErrorMessage"]
+                    </div>
+                }
+                <div class="form-check form-check-sm d-flex align-items-end mb-3">
+                    <input class="form-check-input me-2"
+                           type="checkbox"
+                           value=""
+                           id="flexCheckDefault" />
+                    <label class="form-check-label text-gray-600"
+                           for="flexCheckDefault">
+                        Keep me logged in
+                    </label>
+                </div>
+                <button type="submit" value="Login" class="btn btn-primary btn-block btn-md shadow-lg mb-4">
+                    Log in
+                </button>
+            </form>
+
+            
+
+            <div class="text-center">
+                <p class="text-gray-600">
+                    Don't have an account?
+                    <a href="/Home/Register" class="font-bold">Sign up</a>.
+                </p>
+                <p>
+                    <a class="font-bold" href="/Home/ForgotPassword">Forgot password?</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>

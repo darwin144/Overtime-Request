@@ -1,0 +1,189 @@
+﻿@{
+    ViewData["Title"] = "Request";
+    Layout = "_ManagerLayout";
+}
+
+<body>
+
+    <div id="main">
+        <header class="mb-3 ">
+            <a href="#" class="burger-btn d-block d-xl-none">
+                <i class="bi bi-justify fs-3"></i>
+            </a>
+        </header>
+
+
+        <div class="page-heading">
+            <h3>Profile Statistics</h3>
+
+        </div>
+        <h4 hidden id="primarysid" rows="6" cols="150">@ViewData["primarysid"]</h4>
+        <h3 hidden id="token" rows="6" cols="150">@ViewData["token"]</h3>
+        <div class="page-content">
+            <section class="row">
+                <div class="col-12 col-lg-9">
+                    <div class="row">
+                        <div class="col-6 col-lg-3 col-md-6">
+                            <div class="card">
+                                <div class="card-body px-4 py-4-5">
+                                    <div class="row">
+                                        <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
+                                            <div class="stats-icon purple mb-2">
+                                                <i class="iconly-boldShow"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                                            <h6 class="text-muted font-semibold">Total Employees</h6>
+                                            <h6 class="font-extrabold mb-0" id="profile-views"></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 col-md-6">
+                            <div class="card">
+                                <div class="card-body px-4 py-4-5">
+                                    <div class="row">
+                                        <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
+                                            <div class="stats-icon blue mb-2">
+                                                <i class="iconly-boldProfile"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                                            <h6 class="text-muted font-semibold">Approved</h6>
+                                            <h6 class="font-extrabold mb-0" id="followers"></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 col-md-6">
+                            <div class="card">
+                                <div class="card-body px-4 py-4-5">
+                                    <div class="row">
+                                        <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
+                                            <div class="stats-icon green mb-2">
+                                                <i class="iconly-boldAdd-User"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                                            <h6 class="text-muted font-semibold">Rejected</h6>
+                                            <h6 class="font-extrabold mb-0" id="following"></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 ">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>Employee Req Overtime</h4>
+                                </div>
+                                <div class="card-body">
+                                    @*<div id="chart-profile-visit"></div>*@
+                                    <div id="charta"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-12 col-xl-8">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>Latest Comments</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover table-lg">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Comment</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="col-3">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="avatar avatar-md">
+                                                                <img src="~/lib/assets/images/faces/5.jpg" />
+                                                            </div>
+                                                            <p class="font-bold ms-3 mb-0">Si Cantik</p>
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-auto">
+                                                        <p class="mb-0">
+                                                            Keren Dahsboardnya!!
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="col-3">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="avatar avatar-md">
+                                                                <img src="~/lib/assets/images/faces/2.jpg" />
+                                                            </div>
+                                                            <p class="font-bold ms-3 mb-0">Si Ganteng</p>
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-auto">
+                                                        <p class="mb-0">
+                                                            Wow amazing work Kelompok 4!!
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-3">
+                    <a href="/manager/profile">
+                        <div class="card">
+                            <div class="card-body py-4 px-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="avatar avatar-xl">
+                                        <img src="~/lib/assets/images/faces/2.jpg" alt="Face 1" />
+                                    </div>
+                                    <div class="ms-3 name">
+                                        <h5 class="font-bold">@ViewBag.FullName</h5>
+                                        <h6 class="text-muted mb-0">@ViewBag.Email</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Visitors Gender</h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="chart-gender"></div>
+                        </div>
+                    </div>
+                </div>
+                <footer>
+                    <div class="footer clearfix mb-0 text-muted mt-auto px-4">
+                        <div class="float-start text-sm">
+                            <p>2023 &copy;</p>
+                        </div>
+                        <div class="float-end text-sm">
+                            <p>
+                                Project MCC by
+                                <span class="text-danger">
+                                    <i class="bi bi-heart-fill icon-mid"></i>
+                                </span>
+                                <a href="">Kelompok 4</a>
+                            </p>
+                        </div>
+                    </div>
+                </footer>
+</body>

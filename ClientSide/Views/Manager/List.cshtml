@@ -1,0 +1,127 @@
+﻿@{
+    ViewData["Title"] = "List";
+    Layout = "_ManagerLayout";
+}
+}
+
+<div id="main" class="">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header pb-0">
+                    <h6 style="display: inline-block">List Overtime Request</h6>
+                </div>
+                <h4 hidden id="guidEmployee" rows="6" cols="150">@ViewData["guidEmployee"]</h4>
+                <h3 hidden id="token" rows="6" cols="150">@ViewData["token"]</h3>
+
+                <div class="card-body px-0 pt-0 pb-2">
+                    <div class="table-responsive p-2">
+                        <table class="table align-items-center mb-0" id="tableOvertimeApproval">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Start Overtime</th>
+                                    <th>End Overtime</th>
+                                    <th>Submit Date</th>
+                                    <th>Paid</th>
+                                    <th>Deskripsi</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="employee" class="align-middle text-center"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- modal detail overtime -->
+<div class="modal fade" id="modalDetail" tabindex="-1" role="dialog" aria-labelledby="modalDetail" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalDetail">Request Overtime</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="tab-pane" id="tab-form" role="tabpanel">
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- Column -->
+                            <div class="col-lg-12 col-xlg-12 col-md-12">
+                                <div class="card">
+                                    <div class="tab-content">
+                                        <div id="bagian-form">
+                                            <form class="m-t-10" id="form-isian">
+                                                <div class="row">
+                                                    <div class="row">
+                                                        <div class="form-group col-md-6">
+                                                            <label class="form-group-float-label is-visible">NIK</label>
+                                                            <input type="text" id="nik" class="form-control" disabled>
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <label class="form-group-float-label is-visible">Full Name</label>
+                                                            <input type="text" id="fullName" class="form-control" disabled>
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <label class="form-group-float-label is-visible">Submit Date</label>
+                                                            <input class="form-control" id="submitDate" type="text" disabled>
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <label class="form-group-float-label is-visible">Salary</label>
+                                                            <input class="form-control" id="salary" type="number" disabled>
+                                                        </div>
+                                                        <div class="form-group col-md-12">
+                                                            <label class="form-group-float-label is-visible">Paid</label>
+                                                            <input type="number" id="paid" class="form-control" disabled>
+                                                        </div>
+                                                        <div class="form-group col-md-12">
+                                                            <label class="form-group-float-label is-visible">Type</label>
+                                                            <select class="form-control" id="type" disabled>
+                                                                <option value="0">Weekday</option>
+                                                                <option value="1">Weekend</option>
+                                                            </select>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-single-select datatable-pagination" width="100%">
+                                                            <thead>
+                                                                <tr class="align-middle text-center">
+                                                                    <th>No</th>
+                                                                    <th>Start Overtime</th>
+                                                                    <th>End Overtime</th>
+                                                                    <th>Description</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="tblDetail">
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success approval" id="accepted">Accept</button>
+                <button type="button" class="btn btn-danger approval" id="rejected">Reject</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

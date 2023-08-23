@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+    <meta name="author" content="ERRORMSG">
+    <link rel="stylesheet" href="~/lib/assets/css/main/app.css">
+    <link rel="stylesheet" href="~/lib/assets/css/pages/error.css">
+    <link rel="shortcut icon" href="~/lib/assets/images/logo/favicon.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="~/lib/assets/images/logo/favicon.png" type="image/png">
+</head>
+
+<body>
+    <div id="error">
+        <div class="error-page container">
+            <div class="col-md-8 col-12 offset-md-2">
+                <div class="text-center">
+                @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Argon Scripts -->
+    <!-- Core -->
+    <script src="~/lib/assets/js/bootstrap.js"></script>
+    <script src="~/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="~/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/vendor/js-cookie/js.cookie.js"></script>
+    <script src="~/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="~/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+    <!-- Argon JS -->
+    <script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>

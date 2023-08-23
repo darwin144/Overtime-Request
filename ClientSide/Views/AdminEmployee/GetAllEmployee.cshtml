@@ -1,0 +1,148 @@
+﻿@model IEnumerable<ClientSide.ViewModel.Employee.ListEmployeeVM>
+
+@{
+    ViewData["Title"] = "GetAllEmployee";
+    Layout = "_SidebarLayout";
+}
+
+<div id="main">
+    <header class="mb-3 ">
+        <a href="#" class="burger-btn d-block d-xl-none">
+            <i class="bi bi-justify fs-3"></i>
+        </a>
+    </header>
+
+    <div class="page-heading">
+        <div class="page-title">
+            <div class="row">
+                <div class="col-12 col-md-6 order-md-1 order-last">
+                    <h3>List Employee</h3>
+                    <p class="text-subtitle text-muted">
+                        Manager Employee Data
+                    </p>
+                </div>
+                <div class="col-12 col-md-6 order-md-2 order-first">
+                    <nav aria-label="breadcrumb"
+                         class="breadcrumb-header float-start float-lg-end">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="index.html">Dashboard</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                Employee
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <section class="section">
+            <div class="card">
+                <div class="">
+
+                    <a href="@Url.Action("Register","Home")" class="btn btn-primary float-end me-4" data-toggle="modal" data-target="#modalTambah" title="Add Employee">
+                        <div class="d-inline-block me-2 "><i class="bi bi-plus-lg"></i></div> Employee
+                    </a>
+
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped" id="table1">
+                        <thead>
+                            <tr>
+                                <th style="display: none">ID</th>
+                                <th>NIK</th>
+                                <th>Name</th>
+                                <th style="display: none">Birthdate</th>
+                                <th>Gender</th>
+                                <th style="display: none">Hiring Date</th>
+                                <th>Email</th>
+                                <th>Phone Number</th>
+                                <th>Manager</th>
+                                <th>Title</th>
+                                <th>Department</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td style="display: none">
+                                        @Html.DisplayFor(modelItem => item.Id)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NIK)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.FullName)
+                                    </td>
+                                    <td style="display: none">
+                                        @Html.DisplayFor(modelItem => item.BirthDate)
+                                    </td>
+                                    <td>
+                                        @if (item.Gender == "P")
+                                        {
+                                            <i class="bi bi-gender-female" data-toggle="tooltip" data-placement="top" title="Female" style="color: pink; font-size: 20px;"></i>
+                                        }
+                                        else if (item.Gender == "L")
+                                        {
+                                            <i class="bi bi-gender-male" data-toggle="tooltip" data-placement="top" title="Female" font-size style="color: blue; font-size: 20px;"></i>
+                                        }
+                                        else
+                                        {
+                                            @Html.DisplayFor(modelItem => item.Gender)
+                                        }
+                                    </td>
+                                    <td style="display: none">
+                                        @Html.DisplayFor(modelItem => item.HiringDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Email)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ReportTo)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Title)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DepartmentName)
+                                    </td>
+                                    <td>
+                                        <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit">
+                                            <i class="bi bi-pencil-fill"></i>
+                                        </a>
+                                        <a href="@Url.Action("Deletes", new { id = item.Id })" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Delete">
+                                            <i class="bi bi-trash3-fill"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer clearfix mb-0 text-muted mt-auto px-4">
+            <div class="float-start text-sm">
+                <p>2023 &copy;</p>
+            </div>
+            <div class="float-end text-sm">
+                <p>
+                    Project MCC by
+                    <span class="text-danger">
+                        <i class="bi bi-heart-fill icon-mid"></i>
+                    </span>
+                    <a href="">Kelompok 4</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+</div>
+

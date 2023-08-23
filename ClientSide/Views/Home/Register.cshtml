@@ -1,0 +1,262 @@
+﻿@model ClientSide.ViewModel.Account.RegisterVM
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="~/lib/assets/css/main/app.css" />
+    <link rel="stylesheet" href="~/lib/assets/css/pages/auth.css" />
+    <link rel="shortcut icon"
+          href="~/lib/assets/images/logo/favicon.svg"
+          type="image/x-icon" />
+    <link rel="shortcut icon"
+          href="~/lib/assets/images/logo/favicon.png"
+          type="image/png" />
+    <link rel="stylesheet" href="~/lib/assets/extensions/choices.js/public/assets/styles/choices.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+
+    <!-- Include necessary libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/js/dropdowndata.js"></script>
+
+    <!-- Additional scripts -->
+    @*<script>
+        $(document).ready(function () {
+            $('#birthdate-input').datepicker({
+                format: 'yyyy-mm-dd',
+                autoclose: true,
+                todayHighlight: true
+            });
+
+            $('#hiringdate-input').datepicker({
+                format: 'yyyy-mm-dd',
+                autoclose: true,
+                todayHighlight: true
+            });
+        });
+    </script>*@
+
+    <style>
+        body,
+        html {
+            height: auto;
+        }
+
+        body {
+            background-color: #f2f7ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-y: auto;
+        }
+
+        #auth {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .auth-card {
+            min-width: 500px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffff;
+
+        }
+
+        .auth-logo {
+            text-align: center;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        .auth-title {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .auth-subtitle {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-control-icon {
+            position: absolute;
+            top: 50%;
+            margin-left: 5px;
+            transform: translateY(-55%);
+            color: #ccc;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-control {
+            padding-left: 40px;
+        }
+
+        .btn-block {
+            width: 100%;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="auth">
+        <div class="auth-card">
+            <div class="auth-logo">
+                <a href="">
+                    <img src="https://www.metrodataacademy.id/static/media/logo_metrodata_academy.f40277dc.svg"
+                         alt="Logo"
+                         width="150px" />
+                </a>
+            </div>
+            <div>
+            <h1 class="auth-title">Register Employee</h1>
+            <p class="auth-subtitle mb-5">
+                Input your data to register our website.
+            </p>
+
+            </div>
+            <form action="Register" method="post">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group position-relative has-icon-left mb-3" hidden>
+                    <div class="form-control-icon" >
+                        <i class="bi bi-envelope"></i>
+
+                    </div>
+                <label asp-for="NIK" class="control-label"></label>
+                <input asp-for="NIK" class="form-control form-control-md" type="text" placeholder="NIK"/>
+                <span asp-validation-for="NIK" class="text-danger"></span>
+                </div>
+
+                <div class="form-group position-relative has-icon-left mb-3">
+                        <div class="form-control-icon">
+                            <i class="bi bi-person"></i>
+                        </div>
+                    @*<label asp-for="FirstName" class="control-label"></label>*@
+                    <input asp-for="FirstName" class="form-control form-control-md" type="text" placeholder="First Name" required />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                 </div>
+
+                <div class="form-group position-relative has-icon-left mb-3">
+                        <div class="form-control-icon">
+                            <i class="bi bi-person"></i>
+                        </div>
+                   @* <label asp-for="LastName" class="control-label"></label>*@
+                    <input asp-for="LastName" class="form-control form-control-md" type="text" placeholder="Last Name" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group position-relative">    
+                    <label asp-for="BirthDate" class="control-label">Birth Date</label>
+                    <input asp-for="BirthDate" class="form-control form-control-md" placeholder="Birth Date" />
+                    <span asp-validation-for="BirthDate" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group position-relative has-icon-left mb-3">
+                    <div class="form-control-icon">
+                        <i class="bi bi-gender-male-female"></i>
+                    </div>
+                    <label asp-for="Gender" class="control-label"></label><br />
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label" for="gender-male">
+                            Laki-Laki
+                        </label>
+                        <input asp-for="Gender" class="form-check-input" type="radio" name="gender" id="gender-male" value="L" />
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label" for="gender-female">
+                            Perempuan
+                        </label>
+                        <input asp-for="Gender" class="form-check-input" type="radio" name="gender" id="gender-female" value="P" />
+                    </div>
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+                </div>
+
+                <div class="form-group position-relative">  
+                    <label asp-for="HiringDate" class="control-label"></label>
+                    <input asp-for="HiringDate" class="form-control form-control-md" placeholder="Hiring Date" />
+                    <span asp-validation-for="HiringDate" class="text-danger"></span>
+                </div>
+
+                <div class="form-group position-relative has-icon-left mb-3">
+                    <div class="form-control-icon">
+                        <i class="bi bi-envelope"></i>
+                    </div>
+                    <input asp-for="Email" class="form-control form-control-md" type="email" placeholder="Email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group position-relative has-icon-left mb-3">
+                    <div class="form-control-icon">
+                        <i class="bi bi-telephone"></i>
+                    </div>
+                    <input asp-for="PhoneNumber" class="form-control form-control-md" type="text" placeholder="Phone Number" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+
+                <div class="form-group position-relative has-icon-left mb-3">
+                    <div class="form-control-icon">
+                        <i class="bi bi-person-check-fill"></i>
+                    </div>
+                    <select asp-for="ReportTo" id="manager" class=" form-control" placeholder="Pilih Atasan" ></select>
+                    <span asp-validation-for="ReportTo" class="text-danger"></span>
+                </div>
+                
+                <div class="form-group position-relative has-icon-left mb-3">
+                    <div class="form-control-icon">
+                        <i class="bi bi-person-badge"></i>
+                    </div>
+                    <select asp-for="EmployeeLevel_id" id="employeeleveldropdown" class="form-control form-control-md" type="text" placeholder="Employee Level ID"></select>
+                    <span asp-validation-for="EmployeeLevel_id" class="text-danger"></span>
+                </div>
+                
+                <div class="form-group position-relative has-icon-left mb-3">
+                    <div class="form-control-icon">
+                        <i class="bi bi-building"></i>
+                    </div>
+                    <select asp-for="Department_id" id="departmentdropdown" class="form-control form-control-md" type="text" placeholder="Department ID"> </select>
+                    <span asp-validation-for="Department_id" class="text-danger"></span>
+                </div>
+                
+                <div class="form-group position-relative has-icon-left mb-3">
+                    <div class="form-control-icon">
+                        <i class="bi bi-shield-lock"></i>
+                    </div>
+                    <input asp-for="Password" class="form-control form-control-md" type="password" placeholder="Password"/>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                
+                <div class="form-group position-relative has-icon-left mb-3">
+                    <div class="form-control-icon">
+                        <i class="bi bi-shield-lock"></i>
+                    </div>
+                    <input asp-for="ConfirmPassword" class="form-control form-control-md" type="password" placeholder="Confirm Password" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+                <button class="btn btn-primary btn-block btn-md shadow-lg mt-4">
+                    Register
+                </button>
+          
+        </form>
+        </div>
+    </div>
+
+</body>

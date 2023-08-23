@@ -1,0 +1,137 @@
+﻿@{
+    ViewData["Title"] = "Profile";
+    Layout = "_EmployeeLayout";
+}
+<head>
+    <style>
+        .card {
+            background: linear-gradient(to right, #9376E0, #9376E0);
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="main">
+        <header class="mb-3 ">
+            <a href="#" class="burger-btn d-block d-xl-none">
+                <i class="bi bi-justify fs-3"></i>
+            </a>
+        </header>
+
+        <div class="page-heading">
+            <div class="page-title">
+                <div class="row">
+                    <div class="col-12 col-md-6 order-md-1 order-last">
+                        <h3>User Information</h3>
+                        <p class="text-subtitle text-muted">
+                            See Details of User
+                        </p>
+                    </div>
+                    <div class="col-12 col-md-6 order-md-2 order-first">
+                        <nav aria-label="breadcrumb"
+                             class="breadcrumb-header float-start float-lg-end">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="">Employee</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Profile
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="container  content-center" id="general_nfo">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                @*<p class="text-uppercase text-lg">User Information</p>*@
+                                <div class="row">
+                                    <!-- ... -->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="example-text-input" class="form-control-label mb-2">
+                                                <i class="bi bi-person "></i>
+                                                First Name
+                                            </label>
+                                            <input class="form-control" type="text" value="@ViewBag.FirstName" id="FirstName" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="example-text-input" class="form-control-label mb-2">
+                                                <i class="bi bi-person "></i>
+                                                Last Name
+                                            </label>
+                                            <input class="form-control" type="text" value="@ViewBag.LastName" id="LastName" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="example-text-input" class="form-control-label mb-2">
+                                                <i class="bi bi-credit-card"></i>
+                                                Nik
+                                            </label>
+                                            <input class="form-control" type="text" value="@ViewBag.Nik" id="Nik" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="example-text-input" class="form-control-label mb-2">
+                                                <i class="bi bi-envelope"></i>
+                                                Email
+                                            </label>
+                                            <input class="form-control" type="text" value="@ViewBag.Email" id="Email" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="example-text-input" class="form-control-label mb-2">
+                                                <i class="bi bi-calendar3"></i>
+                                                Hiring Date
+                                            </label>
+                                            <input class="form-control" type="text" value="@ViewBag.HiringDate" id="HiringDate" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="example-text-input" class="form-control-label mb-2">
+                                                <i class="bi bi-calendar3"></i>
+                                                Birth Date
+                                            </label>
+                                            <input class="form-control" type="text" value="@ViewBag.BirthDate" id="BirthDate" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="example-text-input" class="form-control-label mb-2">
+                                                <i class="bi bi-gender-male"></i>
+                                                Gender
+                                            </label><br />
+                                            <input class="form-control" type="text" value="@ViewBag.Gender" id="Gender" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="example-text-input" class="form-control-label mb-2">
+                                                <i class="bi bi-phone"></i>
+                                                Phone
+                                            </label>
+                                            <input class="form-control" type="text" value="@ViewBag.PhoneNumber" id="Phone" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

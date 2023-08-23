@@ -1,0 +1,103 @@
+﻿@{
+    Layout = "_ErrorLayout";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>404 - Not Found</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,700" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <style>
+        body {
+            background-color: #F2F7FF;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #error {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .error-page {
+            text-align: center;
+        }
+
+        .error-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin: 0;
+            color: #000;
+            text-transform: uppercase;
+            margin-top: 20px;
+        }
+
+        .fs-5 {
+            font-size: 18px;
+            margin-top: 15px;
+            color: #888888;
+        }
+
+        .btn {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            text-decoration: none;
+            text-transform: uppercase;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 700;
+            transition: 0.2s;
+            margin-top: 15px;
+        }
+
+            .btn.btn-outline-primary {
+                color: #189cf0;
+                border: 2px solid #189cf0;
+                background-color: transparent;
+            }
+
+                .btn.btn-outline-primary:hover {
+                    background-color: #189cf0;
+                    color: #fff;
+                }
+
+        .img-error {
+            margin-top: 50px;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="error">
+        <div class="error-page container">
+            <div class="col-md-8 col-12 offset-md-2">
+                <div class="text-center">
+                    <img class="img-error"
+                         src="~/lib/assets/images/samples/error-404.svg"
+                         alt="Not Found"
+                         width="400px"
+                         height="340px" />
+                    <h1 class="error-title">NOT FOUND</h1>
+                    <p class="fs-5 text-gray-600">
+                        The page you are looking not found.
+                    </p>
+                    <a href="/Home/Index" class="btn btn-md btn-outline-primary mt-3">Go Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+﻿@{
+	ViewData["Title"] = "Employee";
+	Layout = "_EmployeeLayout";
+}
+
+<div id="main">
+	<header class="mb-3 ">
+		<a href="#" class="burger-btn d-block d-xl-none">
+			<i class="bi bi-justify fs-3"></i>
+		</a>
+	</header>
+
+	<div class="page-heading">
+		<div class="page-title">
+			<div class="row">
+				<div class="col-12 col-md-6 order-md-1 order-last">
+					<h3>Payslip</h3>
+					<p class="text-subtitle text-muted">
+						You may see and download your payslip here
+					</p>
+				</div>
+				<div class="col-12 col-md-6 order-md-2 order-first">
+					<nav aria-label="breadcrumb"
+						 class="breadcrumb-header float-start float-lg-end">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item">
+								<a href="">Employee</a>
+							</li>
+							<li class="breadcrumb-item active" aria-current="page">
+								Payslip
+							</li>
+						</ol>
+					</nav>
+				</div>
+			</div>
+		</div>
+		<h4 hidden id="guidEmployee" rows="6" cols="150">@ViewData["guidEmployee"]</h4>
+		<h3 hidden id="token" rows="6" cols="150">@ViewData["token"]</h3>
+		<section class="section">
+			<div class="card">
+
+				<div class="card-body">
+					<table class="table table-striped" id="tablepayslip">
+						<thead>
+							<tr>
+								<th>No</th>
+								<th>Payroll Date</th>
+								<th>Name</th>
+								<th>Department</th>
+								<th>Title</th>
+								<th>Allowence</th>
+								<th>Overtime</th>
+								<th>Salary cuts</th>
+								<th>Total Salary</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</section>
+	</div>
+
+</div>
+
+
+
+
+

@@ -1,0 +1,167 @@
+﻿@model ClientSide.Models.Overtime
+
+@{
+	ViewData["Title"] = "Request";
+	Layout = "_EmployeeLayout";
+}
+
+
+<div id="main">
+	<header class="mb-3 ">
+		<a href="#" class="burger-btn d-block d-xl-none">
+			<i class="bi bi-justify fs-3"></i>
+		</a>
+	</header>
+
+	<div class="page-heading">
+		<div class="page-title">
+			<div class="row">
+				<div class="col-12 col-md-6 order-md-1 order-last">
+					<h3>Request Overtime</h3>
+					<p class="text-subtitle text-muted">
+						You may request overtime and wait until Manager approve it
+					</p>
+				</div>
+				<div class="col-12 col-md-6 order-md-2 order-first">
+					<nav aria-label="breadcrumb"
+						 class="breadcrumb-header float-start float-lg-end">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item">
+								<a href="index.html">Dashboard</a>
+							</li>
+							<li class="breadcrumb-item active" aria-current="page">
+								Overtime
+							</li>
+						</ol>
+					</nav>
+				</div>
+			</div>
+		</div>
+
+		<h4 hidden id="guidEmployee" rows="6" cols="150">@ViewData["guidEmployee"]</h4>
+		<h3 hidden id="token" rows="6" cols="150">@ViewData["token"]</h3>
+
+		<section class="section">
+			<div class="card">
+
+				<div class="mt-3">
+
+					<button type="button" class="btn btn-primary float-end me-4" data-toggle="modal" data-target="#createOvertime" onclick="ModalCreateOvertime()">
+						<i class="fas fa-plus "></i>&nbsp; Add Overtime
+					</button>
+				</div>
+
+
+				<div class="card-body">
+					<table class="table table-striped" id="tableOvertimeBody">
+						<thead>
+							<tr>
+								<th text-uppercase>No</th>
+								<th text-uppercase>Start Overtime</th>
+								<th text-uppercase>End Overtime</th>
+								<th text-uppercase>Submit Date</th>
+								<th text-uppercase>Paid</th>
+								<th text-uppercase>Status</th>
+								@*<th text-uppercase>Actions</th>*@
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+
+
+
+
+					<!-- Modal Create Overtime -->
+					<div class="modal fade" id="createOvertime" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="auth-logo">
+									<a href="">
+										<img src="https://www.metrodataacademy.id/static/media/logo_metrodata_academy.f40277dc.svg"
+											 alt="Logo"
+											 width="150px" />
+									</a>
+								</div>
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">Create Overtime</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+
+									<form asp-action="CreateOvertime">
+										<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+										<div class="form-group" hidden>
+											<label asp-for="Id" class="control-label"></label>
+											<input asp-for="Id" class="form-control" />
+											<span asp-validation-for="Id" class="text-danger"></span>
+										</div>
+										<div class="form-group">
+											<label asp-for="StartOvertime" class="control-label"></label>
+											<input asp-for="StartOvertime" class="form-control" type="datetime-local" id="startOvertime" />
+											<span asp-validation-for="StartOvertime" class="text-danger"></span>
+										</div>
+										<div class="form-group">
+											<label asp-for="EndOvertime" class="control-label"></label>
+											<input asp-for="EndOvertime" class="form-control" type="datetime-local" id="endOvertime" />
+											<span asp-validation-for="EndOvertime" class="text-danger"></span>
+										</div>
+										<div hidden class="form-group">
+											<label asp-for="SubmitDate" class="control-label"></label>
+											<input asp-for="SubmitDate" class="form-control" />
+											<span asp-validation-for="SubmitDate" class="text-danger"></span>
+										</div>
+										<div class="form-group">
+											<label asp-for="Deskripsi" class="control-label"></label>
+											<input asp-for="Deskripsi" class="form-control" required data-msg-required="Description is required!" />
+											<span asp-validation-for="Deskripsi" class="text-danger"></span>
+										</div>
+										<div class="form-group" hidden>
+											<label asp-for="Paid" class="control-label"></label>
+											<input asp-for="Paid" class="form-control" />
+											<span asp-validation-for="Paid" class="text-danger"></span>
+										</div>
+										<div class="form-group" hidden>
+											<label asp-for="Status" class="control-label"></label>
+											<input asp-for="Status" class="form-control" />
+											<span asp-validation-for="Status" class="text-danger"></span>
+										</div>
+										<div class="form-group" hidden>
+											<label asp-for="Employee_id" class="control-label"></label>
+											<input asp-for="Employee_id" class="form-control" />
+											<span asp-validation-for="Employee_id" class="text-danger"></span>
+										</div>
+										<div class="form-group">
+											<input type="submit" value="Create" class="btn btn-primary" />
+											<button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeModal()">Close</button>
+										</div>
+
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<footer>
+		<div class="footer clearfix mb-0 text-muted mt-auto px-4">
+			<div class="float-start text-sm">
+				<p>2023 &copy;</p>
+			</div>
+			<div class="float-end text-sm">
+				<p>
+					Project MCC by
+					<span class="text-danger">
+						<i class="bi bi-heart-fill icon-mid"></i>
+					</span>
+					<a href="">Kelompok 4</a>
+				</p>
+			</div>
+		</div>
+	</footer>
+</div>
